@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form input {
+  display: block;
+}
+
+.product-img {
+  background-image: url("");
+  width: fit-content;
+}
