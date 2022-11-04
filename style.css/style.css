@@ -1,14 +1,156 @@
+:root {
+  --text-black: #000;
+  --text-White: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-.form input {
-  display: block;
+i {
+  cursor: pointer;
 }
 
-.product-img {
-  background-image: url("");
-  width: fit-content;
+a {
+  text-decoration: none;
+  color: var(--text-black);
+}
+body {
+  font-family: sans-serif;
+  background: #200122; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #6f0000,
+    #200122
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #6f0000,
+    #200122
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.navbar {
+  background-color: transparent;
+  color: white;
+  padding: 1.5em 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2em 0;
+}
+.navbar a {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+}
+.cart {
+  background-color: #fff;
+  color: black;
+  position: relative;
+  padding: 0.4em;
+  font-size: 30px;
+  border-radius: 10%;
+}
+.cart-Amount {
+  font-size: 0.5em;
+  background-color: #e85d04;
+  position: absolute;
+  top: -7px;
+  right: -4px;
+  border-radius: 3px;
+  padding: 3px;
+  color: var(--text-White);
+}
+/* shop item style  */
+.shop {
+  display: grid;
+  grid-template-columns: repeat(4, 223px);
+  gap: 2em;
+  justify-content: center;
+}
+img {
+  border-radius: 10px;
+  filter: blur(1px);
+}
+.item:hover img {
+  filter: none;
+}
+.item {
+  border: 1px solid #212529;
+  border-radius: 10px;
+  background: #fff;
+  transition: all 0.5s linear;
+  color: #800f2f;
+}
+.item:hover {
+  transform: translateY(-1em);
+  padding: 0.4em;
+  cursor: pointer;
+}
+.detail {
+  display: none;
+}
+.item:hover .detail {
+  display: flex;
+  flex-direction: column;
+  color: #800f2f;
+  padding: 10px;
+  gap: 3px;
+}
+.price-quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btn {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #460909e1;
+}
+.bi-dash-lg {
+  color: yellow;
+}
+
+.bi-plus {
+  color: rgb(102, 208, 102);
+}
+
+.btn {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 1em;
+  padding: 10px;
+  border-radius: ra;
+  border-radius: 10px;
+  color: var(--text-White);
+  background-color: rgb(179, 6, 6);
+}
+.admin {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  margin-top: 4em;
+}
+.admin a {
+  color: yellow;
+  margin-left: 0.5em;
+}
+
+@media (max-width: 800px) {
+  .shop {
+    grid-template-columns: repeat(2, 223px);
+  }
+}
+@media (max-width: 500px) {
+  .shop {
+    grid-template-columns: repeat(1, 223px);
+  }
 }

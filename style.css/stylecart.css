@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #dd5e89; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f7bb97,
+    #dd5e89
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f7bb97,
+    #dd5e89
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  text-align: center;
+}
+h1 {
+  color: white;
+  text-align: center;
+}
+.navbar {
+  background-color: transparent;
+  color: white;
+  padding: 1.5em 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2em 0;
+}
+.cart {
+  background-color: #fff;
+  color: black;
+  position: relative;
+  padding: 0.4em;
+  font-size: 30px;
+  border-radius: 10%;
+}
+.checkOut,
+.remove {
+  background-color: rgb(235, 7, 7);
+  color: #fff;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.checkOut {
+  background-color: rgb(123, 190, 21);
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.back {
+  text-decoration: none;
+  color: white;
+  padding: 0.5em;
+  background-color: #f7bb97;
+  margin-top: 1em;
+  border-radius: 10px;
+}
+
+.total {
+  text-align: center;
+  margin-bottom: 0.6em;
+  padding: 0.6em;
+}
+.total h2 {
+  margin: 1em;
+}
+.bi.bi-cart {
+  color: black;
+}
+.bi.bi-plus {
+  color: rgb(7, 227, 69);
+  font-size: 14px;
+}
+.bi.bi-x-lg {
+  color: rgb(227, 7, 7);
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0.2em;
+}
+.bi.bi-dash-lg {
+  color: rgb(227, 7, 7);
+  font-size: 14px;
+}
+/* !style cart */
+.box-item {
+  position: relative;
+}
+.shopping-cart {
+  display: grid;
+  grid-template-columns: repeat(1, 320px);
+  gap: 1em;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.basket-item {
+  border: solid 2px #fff;
+  border-radius: 10px;
+  display: flex;
+  text-align: left;
+  position: relative;
+  color: #fff;
+  background: #e0668a;
+}
+.basket-item img {
+  margin-right: 0.3em;
+  filter: none;
+}
+
+.price-ifo-x {
+  display: flex;
+}
+
+.title-price {
+  flex-direction: column;
+  display: flex;
+  margin-top: 0.3em;
+}
+.btn-new {
+  display: flex;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  margin-top: 0.2em;
+}
