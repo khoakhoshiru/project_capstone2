@@ -1,52 +1,40 @@
-/**
- * 1 tạo lớp đối tượng sản phảm
- * 2 hàm tạo sản phâmr {
- *    - lưu sản phầm
- *   - in sản phẩm
- * tạo ra 2 button xoá xửa
- *
- * }
- * 3 tạo khu vực search sản phẩm
- * 4 hàm xoá , sửa {
- * xoá =>lưu
- * sửa =>lưu
- * in ra màn hình lại
- *
- * }
- */
+//tao mang
+let productItemData = [];
 
-let ProductList = [];
-//call axios
-async function getData() {
-  try {
-    let Data = await axios.get(
-      "https://634cd9bdf5d2cc648e95e7c8.mockapi.io/product"
-    );
-    ProductList = Data.data;
-    console.log(ProductList);
-  } catch (error) {
-    console.log("err");
-  }
-}
+//ham tao
 
-function renderProduct() {
-  ProductList.map(value => {
-    let div = +`<div class="product-info col-3 text-center bg-light">
-    <div class="product-img">
-      <img src="${value.hinhAnh}" alt="" />
-      <div class="title text-start">
-        <h5>${value.name}</h5>
-        <p>
-          ${value.moTa}
-        </p>
-        <div class="p-2">${value.price}</div>
+let createProduct = () => {
+  let name = document.getElementById("name").value;
+  let price = document.getElementById("price").value;
+  let screen = document.getElementById("screen").value;
+  let backCamera = document.getElementById("backCamera").value;
+  let frontCamera = document.getElementById("frontCamera").value;
+  let img = document.getElementById("img").value;
+  let desc = document.getElementById("desc").value;
+  let type = document.getElementById("type").value;
 
-        <button class="btn btn-info">sửa</button
-        ><button class="btn btn-info">xoá</button>
-      </div>
-    </div>
-  </div>
-    `;
-  });
-}
+  let newProduct = new product(
+    name,
+    price,
+    screen,
+    backCamera,
+    frontCamera,
+    img,
+    desc,
+    type
+  );
 
+  productItemData.push(newProduct);
+  console.log(productItemData);
+
+  axios
+    .post("https://634cd9bdf5d2cc648e95e7c8.mockapi.io/product", {
+      product,
+    })
+    .then(result => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
