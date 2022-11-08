@@ -55,7 +55,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Modal title
+                Tạo sản phẩm
               </h1>
               <button
                 type="button"
@@ -66,22 +66,81 @@
             </div>
             <div class="modal-body">
               <div class="input-value">
+                <h4>id</h4>
+                <h3 id="id-pr" class="validate text-danger"></h3>
+
+                <input
+                  type="number"
+                  class="input-form"
+                  id="id"
+                  placeholder="id"
+                />
+
                 <h4>name</h4>
-                <input type="text" id="name" />
+                <h3 id="name-pr" class="validate text-danger"></h3>
+
+                <input class="input-form" id="name" placeholder="name" />
                 <h4>price</h4>
-                <input type="number" id="price" />
+                <h3 id="price-pr" class="validate text-danger"></h3>
+                <input
+                  class="input-form"
+                  type="text"
+                  id="price"
+                  placeholder="price"
+                />
                 <h4>screen</h4>
-                <input type="text" id="screen" />
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="screen"
+                  placeholder="screen"
+                />
                 <h4>backCamera</h4>
-                <input type="text" id="backCamera" />
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="backCamera"
+                  placeholder="backCamera"
+                />
                 <h4>fontCamera</h4>
-                <input type="text" id="frontCamera" />
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="frontCamera"
+                  placeholder="frontCamera"
+                />
                 <h4>img</h4>
-                <input type="text" id="img" />
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="img"
+                  placeholder="img"
+                />
                 <h4>desc</h4>
-                <input type="text" id="desc" />
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="desc"
+                  placeholder="desc"
+                />
                 <h4>type</h4>
-                <input type="text" id="type" />
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="type"
+                  placeholder="type"
+                />
               </div>
             </div>
             <div class="modal-footer">
@@ -95,7 +154,7 @@
               <button
                 onclick="createProduct()"
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-primary i"
               >
                 Create
               </button>
@@ -105,19 +164,22 @@
       </div>
     </div>
 
+    <div class="shop" id="shop"></div>
+
     <!-- JavaScript Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
-    <script src="./module_adimin/opp.js"></script>
-    <script src="./module_adimin/index.js"></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"
       integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="./module_adimin/opp.js"></script>
+    <script src="./module_adimin/index.js"></script>
   </body>
 </html>
