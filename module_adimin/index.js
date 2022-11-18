@@ -227,26 +227,44 @@ let updateProduct = () => {
   );
 
   console.log(id);
-  axios({
+  promise = axios({
     url: "https://634cd9bdf5d2cc648e95e7c8.mockapi.io/product/" + id,
-    METHOD: "PUT",
+    method: "PUT",
     data: newProduct,
-  })
-    .then(function (res) {
+  });
+
+  promise
+    .then(function (response) {
+      console.log(response);
+
+      productItemData = response.data;
+
       getProductData();
-      // hiện lại nút thêm, ẩn nút lưu
-      document.getElementById("btnUpdate").style.display = "none";
-      document.getElementById("btnCreate").style.display = "block";
-
-      // clear toàn bộ input
-      document.getElementById("btnReset").click();
-
-      // mở lại input mã sinh viên
-      document.getElementById("id").disabled = false;
+      reset();
     })
     .catch(function (err) {
       console.log(err);
     });
+  // axios({
+  //   url: "https://634cd9bdf5d2cc648e95e7c8.mockapi.io/product/" + id,
+  //   METHOD: "PUT",
+  //   data: newProduct,
+  // })
+  //   .then(function (res) {
+  //     getProductData();
+  //     // hiện lại nút thêm, ẩn nút lưu
+  //     document.getElementById("btnUpdate").style.display = "none";
+  //     document.getElementById("btnCreate").style.display = "block";
+
+  //     // clear toàn bộ input
+  //     document.getElementById("btnReset").click();
+
+  //     // mở lại input mã sinh viên
+  //     document.getElementById("id").disabled = false;
+  //   })
+  //   .catch(function (err) {
+  //     console.log(err);
+  //   });
 };
 let reset = () => {
   document.getElementById("id").value = "";
@@ -258,4 +276,8 @@ let reset = () => {
   document.getElementById("img").value = "";
   document.getElementById("desc").value = "";
   document.getElementById("type").value = "";
+
+  document.getElementById("btnCreate").style.display = "inline-block";
+  document.getElementById("btnUpdate").style.display = "none";
+  document.getElementById("id").disabled = false;
 };
