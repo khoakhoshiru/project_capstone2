@@ -18,7 +18,7 @@ window.onload = async () => {
 };
 let getProductData = () => {
   promise = axios({
-    url: "https://634cd9bdf5d2cc648e95e7c8.mockapi.io/product",
+    url: "https://634cd9bdf5d2cc648e95e7c8.mockapi.io/product/",
     method: "GET",
   });
 
@@ -117,7 +117,8 @@ let generateShop = () => {
         <button onclick= "deleteProduct('${id}')"class="btn btn btn-warning">
         xoá
         </button>
-        <button onclick= "update('${id}')"class="btn btn btn-warning">
+        <button onclick= "showUpdates('${id}')" class="btnUpdate btn btn btn-warning"data-bs-toggle="modal"
+        data-bs-target="#exampleModal" >
         sửa
         </button>
       </div>
@@ -169,4 +170,92 @@ let required = (val, id) => {
 
   document.getElementById(id).innerHTML = "";
   return true;
+};
+
+let showUpdates = id => {
+  axios({
+    url: "https://634cd9bdf5d2cc648e95e7c8.mockapi.io/product/" + id,
+    method: "GET",
+  })
+    .then(function (res) {
+      var productData = res.data;
+      // đổ thông tin của student lên input
+      document.getElementById("id").value = productData.id;
+      document.getElementById("name").value = productData.name;
+      document.getElementById("price").value = productData.price;
+      document.getElementById("screen").value = productData.screen;
+      document.getElementById("backCamera").value = productData.backCamera;
+      document.getElementById("frontCamera").value = productData.frontCamera;
+      document.getElementById("img").value = productData.img;
+      document.getElementById("desc").value = productData.desc;
+      document.getElementById("type").value = productData.type;
+
+      // hiện nút lưu thay đổi, ẩn nút thêm
+      document.getElementById("btnUpdate").style.display = "inline-block";
+      document.getElementById("btnCreate").style.display = "none";
+
+      // disable input mã sinh viên
+      document.getElementById("id").disabled = true;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+};
+
+let updateProduct = () => {
+  //cho nguoi dung nhap vo moi
+  let id = document.getElementById("id").value;
+  let name = document.getElementById("name").value;
+  let price = document.getElementById("price").value;
+  let screen = document.getElementById("screen").value;
+  let backCamera = document.getElementById("backCamera").value;
+  let frontCamera = document.getElementById("frontCamera").value;
+  let img = document.getElementById("img").value;
+  let desc = document.getElementById("desc").value;
+  let type = document.getElementById("type").value;
+
+  let newProduct = new product(
+    id,
+    name,
+    price,
+    screen,
+    backCamera,
+    frontCamera,
+    img,
+    desc,
+    type
+  );
+
+  console.log(id);
+  axios({
+    url: "https://634cd9bdf5d2cc648e95e7c8.mockapi.io/product/" + id,
+    METHOD: "PUT",
+    data: newProduct,
+  })
+    .then(function (res) {
+      getProductData();
+      // hiện lại nút thêm, ẩn nút lưu
+      document.getElementById("btnUpdate").style.display = "none";
+      document.getElementById("btnCreate").style.display = "block";
+
+      // clear toàn bộ input
+      document.getElementById("btnReset").click();
+
+      // mở lại input mã sinh viên
+      document.getElementById("id").disabled = false;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+};
+let reset = () => {
+  document.getElementById("id").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("screen").value = "";
+  document.getElementById("backCamera").value = "";
+  document.getElementById("frontCamera").value = "";
+  document.getElementById("img").value = "";
+  document.getElementById("desc").value = "";
+  document.getElementById("type").value = "";
 };
