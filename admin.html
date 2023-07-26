@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>admin WorldPhone</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styleAdmin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          WorldPhone.com <span><i class="bi bi-phone"></i></span>
+        </div>
+        <div class="nav-block">
+          <li><a href="./index.html">Home</a></li>
+          <li><a>xem sản phẩm</a></li>
+          <li><a>thêm sản phẩm</a></li>
+        </div>
+      </nav>
+    </header>
+    <div class="input-form">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        onclick=""
+      >
+        Create Product
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Tạo sản phẩm
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="input-value">
+                <h4>id</h4>
+                <h3 id="id-pr" class="validate text-danger"></h3>
+
+                <input
+                  type="number"
+                  class="input-form"
+                  id="id"
+                  placeholder="id"
+                />
+
+                <h4>name</h4>
+                <h3 id="name-pr" class="validate text-danger"></h3>
+
+                <input class="input-form" id="name" placeholder="name" />
+                <h4>price</h4>
+                <h3 id="price-pr" class="validate text-danger"></h3>
+                <input
+                  class="input-form"
+                  type="text"
+                  id="price"
+                  placeholder="price"
+                />
+                <h4>screen</h4>
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="screen"
+                  placeholder="screen"
+                />
+                <h4>backCamera</h4>
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="backCamera"
+                  placeholder="backCamera"
+                />
+                <h4>fontCamera</h4>
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="frontCamera"
+                  placeholder="frontCamera"
+                />
+                <h4>img</h4>
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="img"
+                  placeholder="img"
+                />
+                <h4>desc</h4>
+                <h3 id="" class="validate text-danger"></h3>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="desc"
+                  placeholder="desc"
+                />
+                <h4>type</h4>
+
+                <input
+                  class="input-form"
+                  type="text"
+                  id="type"
+                  placeholder="type"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                id="btnCreate"
+                onclick="createProduct()"
+                type="button"
+                class="btn btn-primary i btnCreate"
+              >
+                Create
+              </button>
+              <button
+                id="btnUpdate"
+                onclick="updateProduct()"
+                type="button"
+                class="btn btn-primary i btnCreate"
+              >
+                update
+              </button>
+              <button
+                id="btnReset"
+                onclick="reset()"
+                type="button"
+                class="btn btn-primary i btnCreate"
+              >
+                reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop" id="shop"></div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"
+      integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./module_adimin/opp.js"></script>
+    <script src="./module_adimin/index.js"></script>
+  </body>
+</html>
